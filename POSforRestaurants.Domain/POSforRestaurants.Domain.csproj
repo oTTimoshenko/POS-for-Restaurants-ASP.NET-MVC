@@ -30,7 +30,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -40,13 +47,31 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\Contexts\PosContext.cs" />
+    <Compile Include="Data\Entities\Category.cs" />
+    <Compile Include="Data\Entities\Item.cs" />
+    <Compile Include="Data\Entities\Order.cs" />
+    <Compile Include="Data\Entities\Seat.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UoWandRepositories\Interfaces\ICategoryRepository.cs" />
+    <Compile Include="UoWandRepositories\Interfaces\IGenericRepository.cs" />
+    <Compile Include="UoWandRepositories\Interfaces\IItemRepository.cs" />
+    <Compile Include="UoWandRepositories\Interfaces\IOrderRepository.cs" />
+    <Compile Include="UoWandRepositories\Interfaces\ISeatRepository.cs" />
+    <Compile Include="UoWandRepositories\Interfaces\IUnitOfWork.cs" />
+    <Compile Include="UoWandRepositories\Realization\CategoryRepository.cs" />
+    <Compile Include="UoWandRepositories\Realization\GenericRepository.cs" />
+    <Compile Include="UoWandRepositories\Realization\ItemRepository.cs" />
+    <Compile Include="UoWandRepositories\Realization\OrderRepository.cs" />
+    <Compile Include="UoWandRepositories\Realization\SeatRepository.cs" />
+    <Compile Include="UoWandRepositories\Realization\UnitOfWork.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Data\Contexts\" />
-    <Folder Include="Data\Entities\" />
     <Folder Include="Infrastructure\" />
-    <Folder Include="UoWandRepositories\Interfaces\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

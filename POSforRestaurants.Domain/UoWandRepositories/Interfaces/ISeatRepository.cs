@@ -9,6 +9,6 @@ namespace POSforRestaurants.Domain.UoWandRepositories.Interfaces
 {
     public interface ISeatRepository : IGenericRepository<Seat>
     {
-        Seat GetById(int id);
+        Task<Seat> GetByIdAsync(int id);
     }
 }

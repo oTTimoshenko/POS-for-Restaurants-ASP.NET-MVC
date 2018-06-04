@@ -13,6 +13,6 @@ namespace POSforRestaurants.Domain.UoWandRepositories.Interfaces
         IOrderRepository Orders { get; }
         ISeatRepository Seats { get; }
 
-        int Save();
+        Task SaveAsync();
     }
 }

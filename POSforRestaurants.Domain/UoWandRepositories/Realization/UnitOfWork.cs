@@ -64,9 +64,9 @@ namespace POSforRestaurants.Domain.UoWandRepositories.Realization
             }
         }
 
-        public int Save()// Save changes
+        public async Task SaveAsync()// Save changes
         {
-            return _dbContext.SaveChanges();
+            await _dbContext.SaveChangesAsync();
         }
 
         // Disposes the current object

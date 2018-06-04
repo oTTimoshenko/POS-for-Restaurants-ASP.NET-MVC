@@ -9,6 +9,6 @@ namespace POSforRestaurants.Domain.UoWandRepositories.Interfaces
 {
    public interface ICategoryRepository:IGenericRepository<Category>
     {
-        Category GetById(int id);
+        Task<Category> GetByIdAsync(int id);
     }
 }

@@ -11,7 +11,7 @@ namespace POSforRestaurants.Domain.Data.Entities
     public class Order
     {
         [Key]
-        public int OredId { get; set; }
+        public int OrderId { get; set; }
 
         public double TipsAmount { get; set; }
         public double TotalPrice { get; set; }

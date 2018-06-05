@@ -9,7 +9,11 @@ namespace POSforRestaurants.WebUI.App_Start
     using Microsoft.Web.Infrastructure.DynamicModuleHelper;
 
     using Ninject;
+    using Ninject.Modules;
     using Ninject.Web.Common;
+    using Ninject.Web.Mvc;
+    using POSforRestaurants.Domain.Infrastructure;
+    using POSforRestaurants.Logic.Infrastructure;
 
     public static class NinjectWebCommon 
     {
@@ -39,12 +43,18 @@ namespace POSforRestaurants.WebUI.App_Start
         /// <returns>The created kernel.</returns>
         private static IKernel CreateKernel()
         {
+            NinjectLogicModule logicModule = new NinjectLogicModule();
+            NinjectDomainModule domainModule = new NinjectDomainModule("PosConnection");
+
+            INinjectModule[] modules = new INinjectModule[] { logicModule, domainModule };
+
             var kernel = new StandardKernel();
             try
             {
                 kernel.Bind<Func<IKernel>>().ToMethod(ctx => () => new Bootstrapper().Kernel);
                 kernel.Bind<IHttpModule>().To<HttpApplicationInitializationHttpModule>();
 
+                //System.Web.Http.GlobalConfiguration.Configuration.DependencyResolver = new NinjectDependencyResolver(kernel);
                 RegisterServices(kernel);
                 return kernel;
             }

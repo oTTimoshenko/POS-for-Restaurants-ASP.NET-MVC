@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace POSforRestaurants.Domain.Infrastructure
 {
-    class MappingDomainConfig
+    public class MappingDomainConfig
     {
     }
 }

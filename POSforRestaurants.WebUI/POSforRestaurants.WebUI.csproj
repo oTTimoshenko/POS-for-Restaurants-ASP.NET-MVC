@@ -164,6 +164,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\MappingUIConfig.cs" />
+    <Compile Include="Infrastructure\NinjectMapperModule.cs" />
     <Compile Include="Infrastructure\NinjectUIModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -221,6 +222,16 @@
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\POSforRestaurants.Domain\POSforRestaurants.Domain.csproj">
+      <Project>{362b5af3-0b3c-4891-86e7-0e795672d521}</Project>
+      <Name>POSforRestaurants.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\POSforRestaurants.Logic\POSforRestaurants.Logic.csproj">
+      <Project>{0348dc5e-4de9-4c76-9ba5-43076fa9cda3}</Project>
+      <Name>POSforRestaurants.Logic</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

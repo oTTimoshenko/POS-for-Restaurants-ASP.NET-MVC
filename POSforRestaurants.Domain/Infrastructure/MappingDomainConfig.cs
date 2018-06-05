@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace POSforRestaurants.Logic
+namespace POSforRestaurants.Domain.Infrastructure
 {
-    public class Class1
+    class MappingDomainConfig
     {
     }
 }

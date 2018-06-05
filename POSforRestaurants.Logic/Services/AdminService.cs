@@ -28,7 +28,7 @@ namespace POSforRestaurants.Logic.Services
             {
                 var category = mapper.Map<Category>(categoryDTO);
                 db.Categories.Add(category);
-               await db.SaveAsync();
+                await db.SaveAsync();
             }
             catch (Exception exc)
             {
@@ -51,6 +51,22 @@ namespace POSforRestaurants.Logic.Services
             }
             return true;
         }
+
+        public async Task<bool> AddItem(ItemDTO itemDTO)
+        {
+            try
+            {
+                var item = mapper.Map<Item>(itemDTO);
+                db.Items.Add(item);
+                await db.SaveAsync();
+            }
+            catch (Exception exc)
+            {
+                return false;
+            }
+            return true;
+        }
+
 
         public async Task<bool> RemoveCategory(int id)
         {
@@ -108,6 +124,7 @@ namespace POSforRestaurants.Logic.Services
             return true;
         }
 
+
         public async Task<bool> UpdateCategory(CategoryDTO categoryDTO)
         {
             try
@@ -129,6 +146,21 @@ namespace POSforRestaurants.Logic.Services
             {
                 var seat = mapper.Map<Seat>(seatDTO);
                 db.Seats.Edit(seat);
+                await db.SaveAsync();
+            }
+            catch (Exception exc)
+            {
+                return false;
+            }
+            return true;
+        }
+
+        public async Task<bool> UpdateItem(ItemDTO itemDTO)
+        {
+            try
+            {
+                var item = mapper.Map<Item>(itemDTO);
+                db.Items.Edit(item);
                 await db.SaveAsync();
             }
             catch (Exception exc)

@@ -11,9 +11,11 @@ namespace POSforRestaurants.Logic.Interfaces
     {
         Task<bool> AddCategory(CategoryDTO categoryDTO);
         Task<bool> AddSeat(SeatDTO seatDTO);
+        Task<bool> AddItem(ItemDTO itemDTO);
 
         Task<bool> UpdateCategory(CategoryDTO categoryDTO);
         Task<bool> UpdateSeat(SeatDTO seatDTO);
+        Task<bool> UpdateItem(ItemDTO itemDTO);
 
         Task<bool> RemoveCategory(int id);
         Task<bool> RemoveSeat(int id);

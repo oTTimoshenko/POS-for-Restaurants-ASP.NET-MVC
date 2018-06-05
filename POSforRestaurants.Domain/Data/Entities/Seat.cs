@@ -14,6 +14,7 @@ namespace POSforRestaurants.Domain.Data.Entities
         public int SeatId { get; set; }
 
         public string Name { get; set; }
+        public SeatStatus SeatStatus { get; set; }
 
         public ICollection<Order> Orders { get; set; }
 
@@ -21,5 +22,11 @@ namespace POSforRestaurants.Domain.Data.Entities
         {
             Orders = new List<Order>();
         }
+    }
+
+    public enum SeatStatus
+    {
+        Available,
+        Busy
     }
 }

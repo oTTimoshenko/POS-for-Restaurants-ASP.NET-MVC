@@ -11,12 +11,18 @@ namespace POSforRestaurants.Logic.DTO
         public int SeatId { get; set; }
 
         public string Name { get; set; }
+        public SeatStatusDTO SeatStatus { get; set; }
+        /* public ICollection<Order> Orders { get; set; }
 
-       /* public ICollection<Order> Orders { get; set; }
-
-        public Seat()
-        {
+           public Seat()
+         {
             Orders = new List<Order>();
-        }*/
+         }*/
+    }
+
+    public enum SeatStatusDTO
+    {
+        Available,
+        Busy
     }
 }

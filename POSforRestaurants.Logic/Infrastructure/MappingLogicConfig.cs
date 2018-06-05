@@ -18,6 +18,7 @@ namespace POSforRestaurants.Logic.Infrastructure
             CreateMap<SeatDTO, Seat>().ReverseMap().MaxDepth(2);
             CreateMap<OrderDTO, Order>().ReverseMap().MaxDepth(2);
             CreateMap<OrderStateDTO, OrderState>().ReverseMap();
+            CreateMap<SeatStatusDTO, SeatStatus>().ReverseMap();
         }
     }
 }

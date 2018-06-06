@@ -21,11 +21,11 @@ namespace POSforRestaurants.Logic.DTO
         public DateTime OpenedDate { get; set; }
         public DateTime ClosedDate { get; set; }
 
-        /*public ICollection<Item> Items { get; set; }
-        public Order()
+        public ICollection<ItemDTO> Items { get; set; }
+        public OrderDTO()
         {
-            Items = new List<Item>();
-        }*/
+            Items = new List<ItemDTO>();
+        }
     }
 
     public enum OrderStateDTO

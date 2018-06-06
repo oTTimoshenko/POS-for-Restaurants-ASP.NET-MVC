@@ -9,22 +9,16 @@ namespace POSforRestaurants.Logic.Interfaces
 {
     public interface IWaiterService
     {
-        //make order
+        //create order +
         //decline order
-        //update order - optional
         //pay for order
 
+        bool CreateOrder(OrderDTO orderDTO);
+        bool DeclineOrder(OrderDTO orderDTO);
+        bool PayForOrder(OrderDTO orderDTO);
 
-        //add item in order
-        //remove item from order
-
-        //show info about order
-        //show info about item
-        //show info about seat
-
-        //get orders history
-        //get all items
-        //get all seats
+        Task<bool> AddItemInOrder(OrderDTO orderDTO, int itemId);
+        Task<bool> RemoveItemInOrder(OrderDTO orderDTO, int itemId);
 
         Task<OrderDTO> GetOrder(int id);
         Task<ItemDTO> GetItem(int id);

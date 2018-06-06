@@ -19,5 +19,17 @@ namespace POSforRestaurants.Domain.UoWandRepositories.Realization
         {
             return await _dbset.Where(x => x.OrderId == id).FirstOrDefaultAsync();
         }
+
+        public void DeclineOrder(Order order)
+        {
+            order.OrderState = OrderState.Voided;
+            _entities.Entry(order).State = EntityState.Modified;
+        }
+
+        public void PayForOrder(Order order)
+        {
+            order.OrderState = OrderState.Paid;
+            _entities.Entry(order).State = EntityState.Modified;
+        }
     }
 }

@@ -57,9 +57,11 @@
     <Compile Include="Infrastructure\MappingLogicConfig.cs" />
     <Compile Include="Infrastructure\NinjectLogicModule.cs" />
     <Compile Include="Interfaces\IAdminService.cs" />
+    <Compile Include="Interfaces\IUserService.cs" />
     <Compile Include="Interfaces\IWaiterService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\AdminService.cs" />
+    <Compile Include="Services\UserService.cs" />
     <Compile Include="Services\WaiterService.cs" />
   </ItemGroup>
   <ItemGroup>

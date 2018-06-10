@@ -20,12 +20,12 @@ namespace POSforRestaurants.Logic.Interfaces
         Task<bool> AddItemInOrder(OrderDTO orderDTO, int itemId);
         Task<bool> RemoveItemInOrder(OrderDTO orderDTO, int itemId);
 
-        Task<OrderDTO> GetOrder(int id);
+        /*Task<OrderDTO> GetOrder(int id);
         Task<ItemDTO> GetItem(int id);
         Task<SeatDTO> GetSeat(int id);
 
         Task<IEnumerable<OrderDTO>> GetAllOrders();
         Task<IEnumerable<ItemDTO>> GetAllItems();
-        Task<IEnumerable<SeatDTO>> GetAllSeats();
+        Task<IEnumerable<SeatDTO>> GetAllSeats();*/
     }
 }

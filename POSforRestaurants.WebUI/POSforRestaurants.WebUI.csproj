@@ -159,13 +159,19 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\WaiterController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\MappingUIConfig.cs" />
     <Compile Include="Infrastructure\NinjectMapperModule.cs" />
     <Compile Include="Infrastructure\NinjectUIModule.cs" />
+    <Compile Include="Models\CategoryView.cs" />
+    <Compile Include="Models\ItemView.cs" />
+    <Compile Include="Models\OrderView.cs" />
+    <Compile Include="Models\SeatView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -208,7 +214,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
+    <Folder Include="Views\Admin\" />
+    <Folder Include="Views\Waiter\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

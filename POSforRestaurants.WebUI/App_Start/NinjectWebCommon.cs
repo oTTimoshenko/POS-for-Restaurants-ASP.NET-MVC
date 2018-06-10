@@ -14,21 +14,22 @@ namespace POSforRestaurants.WebUI.App_Start
     using Ninject.Web.Mvc;
     using POSforRestaurants.Domain.Infrastructure;
     using POSforRestaurants.Logic.Infrastructure;
+    using POSforRestaurants.WebUI.Infrastructure;
 
-    public static class NinjectWebCommon 
+    public static class NinjectWebCommon
     {
         private static readonly Bootstrapper bootstrapper = new Bootstrapper();
 
         /// <summary>
         /// Starts the application
         /// </summary>
-        public static void Start() 
+        public static void Start()
         {
             DynamicModuleUtility.RegisterModule(typeof(OnePerRequestHttpModule));
             DynamicModuleUtility.RegisterModule(typeof(NinjectHttpModule));
             bootstrapper.Initialize(CreateKernel);
         }
-        
+
         /// <summary>
         /// Stops the application.
         /// </summary>
@@ -36,7 +37,7 @@ namespace POSforRestaurants.WebUI.App_Start
         {
             bootstrapper.ShutDown();
         }
-        
+
         /// <summary>
         /// Creates the kernel that will manage your application.
         /// </summary>
@@ -45,6 +46,7 @@ namespace POSforRestaurants.WebUI.App_Start
         {
             NinjectLogicModule logicModule = new NinjectLogicModule();
             NinjectDomainModule domainModule = new NinjectDomainModule("PosConnection");
+            NinjectUIModule uiModule = new NinjectUIModule();
 
             INinjectModule[] modules = new INinjectModule[] { logicModule, domainModule };
 
@@ -71,6 +73,7 @@ namespace POSforRestaurants.WebUI.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
-        }        
+            System.Web.Mvc.DependencyResolver.SetResolver(new NinjectDependencyResolver(kernel));
+        }
     }
 }

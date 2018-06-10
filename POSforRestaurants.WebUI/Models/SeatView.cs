@@ -1,0 +1,27 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+
+namespace POSforRestaurants.WebUI.Models
+{
+    public class SeatView
+    {
+        public int SeatId { get; set; }
+
+        public string Name { get; set; }
+        public SeatStatusView SeatStatus { get; set; }
+        /* public ICollection<Order> Orders { get; set; }
+
+           public Seat()
+         {
+            Orders = new List<Order>();
+         }*/
+    }
+
+    public enum SeatStatusView
+    {
+        Available,
+        Busy
+    }
+}

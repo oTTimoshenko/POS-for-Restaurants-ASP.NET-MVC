@@ -9,6 +9,8 @@ namespace POSforRestaurants.Domain.UoWandRepositories.Interfaces
 {
     public interface IOrderRepository : IGenericRepository<Order>
     {
-        Order GetById(int id);
+        Task<Order> GetByIdAsync(int id);
+        void DeclineOrder(Order order);
+        void PayForOrder(Order order);
     }
 }

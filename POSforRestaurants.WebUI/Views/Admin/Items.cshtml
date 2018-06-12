@@ -1,0 +1,56 @@
+﻿@model IEnumerable<POSforRestaurants.WebUI.Models.ItemView>
+
+@{
+    ViewBag.Title = "Items";
+}
+
+<h2>Items</h2>
+
+<p>
+    @Html.ActionLink("Create New", "AddItem")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ItemId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PicturePath)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CategoryId)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ItemId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Price)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PicturePath)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CategoryId)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new {  id=item.ItemId  }) |
+            @Html.ActionLink("Delete", "Delete", new {  id=item.ItemId  })
+        </td>
+    </tr>
+}
+
+</table>

@@ -9,7 +9,7 @@ namespace POSforRestaurants.Domain.UoWandRepositories.Interfaces
     public interface IGenericRepository<TDomainEntity>
         where TDomainEntity : class
     {
-        IEnumerable<TDomainEntity> GetAll();
+        Task<IEnumerable<TDomainEntity>> GetAllAsync();
         void Add(TDomainEntity entity);
         void Delete(TDomainEntity entity);
         void DeleteById(int Id);

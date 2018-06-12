@@ -15,9 +15,9 @@ namespace POSforRestaurants.Domain.UoWandRepositories.Realization
              : base(context)
         { }
 
-        public Item GetById(int id)
+        public async Task<Item> GetByIdAsync(int id)
         {
-            return _dbset.Where(x => x.ItemId == id).FirstOrDefault();
+            return await _dbset.Where(x => x.ItemId == id).FirstOrDefaultAsync();
         }
     }
 }

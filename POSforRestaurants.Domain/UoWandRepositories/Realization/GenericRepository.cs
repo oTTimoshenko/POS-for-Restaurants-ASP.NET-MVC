@@ -21,17 +21,17 @@ namespace POSforRestaurants.Domain.UoWandRepositories.Realization
             _dbset = _entities.Set<TDomainEntity>();
         }
 
-        public virtual IEnumerable<TDomainEntity> GetAll()
+        public async virtual Task<IEnumerable<TDomainEntity>> GetAllAsync()
         {
-            return _dbset.AsEnumerable<TDomainEntity>();
+            return await _dbset.ToListAsync();
         }
 
         public virtual void Add(TDomainEntity entity)
         {
-            _dbset.Add(entity);
+             _dbset.Add(entity);
         }
 
-        public virtual void Delete(TDomainEntity entity)
+        public  virtual void Delete(TDomainEntity entity)
         {
             _dbset.Remove(entity);
         }

@@ -12,6 +12,7 @@ namespace POSforRestaurants.Logic.Interfaces
         Task<OrderDTO> GetOrder(int id);
         Task<ItemDTO> GetItem(int id);
         Task<SeatDTO> GetSeat(int id);
+        Task<CategoryDTO> GetCategory(int id);
 
         Task<IEnumerable<CategoryDTO>> GetAllCategories();
         Task<IEnumerable<OrderDTO>> GetAllOrders();

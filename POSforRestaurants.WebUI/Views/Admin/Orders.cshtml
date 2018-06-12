@@ -1,0 +1,59 @@
+﻿@model IEnumerable<POSforRestaurants.WebUI.Models.OrderView>
+
+@{
+    ViewBag.Title = "Orders";
+}
+
+<h2>Orders</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.OrderId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TipsAmount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TotalPrice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SeatId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OpenedDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ClosedDate)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.OrderId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TipsAmount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TotalPrice)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SeatId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OpenedDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ClosedDate)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new {  id=item.OrderId  }) |
+            @Html.ActionLink("Delete", "Delete", new {  id=item.OrderId  })
+        </td>
+    </tr>
+}
+
+</table>

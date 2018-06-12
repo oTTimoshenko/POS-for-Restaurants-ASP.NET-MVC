@@ -25,7 +25,7 @@ namespace POSforRestaurants.WebUI.Infrastructure
                 config.AddProfile(new MappingUIConfig());
             });
 
-            Mapper.AssertConfigurationIsValid(); // optional
+            //Mapper.AssertConfigurationIsValid(); // optional
             return Mapper.Instance;
         }
     }

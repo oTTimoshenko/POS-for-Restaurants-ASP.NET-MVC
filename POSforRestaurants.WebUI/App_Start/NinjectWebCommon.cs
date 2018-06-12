@@ -47,15 +47,17 @@ namespace POSforRestaurants.WebUI.App_Start
             NinjectLogicModule logicModule = new NinjectLogicModule();
             NinjectDomainModule domainModule = new NinjectDomainModule("PosConnection");
             NinjectUIModule uiModule = new NinjectUIModule();
+            NinjectMapperModule mapperModule = new NinjectMapperModule();
 
-            INinjectModule[] modules = new INinjectModule[] { logicModule, domainModule };
+            INinjectModule[] modules = new INinjectModule[] { logicModule, domainModule, uiModule, mapperModule };
 
-            var kernel = new StandardKernel();
+            var kernel = new StandardKernel(modules);
             try
             {
                 kernel.Bind<Func<IKernel>>().ToMethod(ctx => () => new Bootstrapper().Kernel);
                 kernel.Bind<IHttpModule>().To<HttpApplicationInitializationHttpModule>();
 
+                System.Web.Mvc.DependencyResolver.SetResolver(new NinjectDependencyResolver(kernel));
                 //System.Web.Http.GlobalConfiguration.Configuration.DependencyResolver = new NinjectDependencyResolver(kernel);
                 RegisterServices(kernel);
                 return kernel;
@@ -73,7 +75,7 @@ namespace POSforRestaurants.WebUI.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
-            System.Web.Mvc.DependencyResolver.SetResolver(new NinjectDependencyResolver(kernel));
+            
         }
     }
 }

@@ -13,7 +13,6 @@ namespace POSforRestaurants.Domain.Infrastructure
     {
         private string ConnectionString;
 
-
         public NinjectDomainModule(string ConnectionString)
         {
             this.ConnectionString = ConnectionString;

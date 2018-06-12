@@ -45,7 +45,7 @@ namespace POSforRestaurants.Logic.Services
         public async Task<IEnumerable<SeatDTO>> GetAllSeats()
         {
             var seats = await db.Seats.GetAllAsync();
-            var seatsDTO = await mapper.Map<Task<IEnumerable<SeatDTO>>>(seats);
+            var seatsDTO = mapper.Map<IEnumerable<SeatDTO>>(seats);
             return seatsDTO;
         }
 
@@ -70,6 +70,13 @@ namespace POSforRestaurants.Logic.Services
             var seat = await db.Seats.GetByIdAsync(id);
             var seatDTO = mapper.Map<SeatDTO>(seat);
             return seatDTO;
+        }
+
+        public async Task<CategoryDTO> GetCategory(int id)
+        {
+            var category = await db.Categories.GetByIdAsync(id);
+            var categoryDTO = mapper.Map<CategoryDTO>(category);
+            return categoryDTO;
         }
     }
 }
